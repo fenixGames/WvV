@@ -6,7 +6,7 @@ SET(INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
 
 if (WIN32)
-	include_directories("${CMAKE_CURRENT_SOURCE_DIR}" "C:/SDL2/include")
+	include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include" "C:/SDL2/include")
 	find_library(SDL2_LIBRARY SDL2 PATHS "${CMAKE_CURRENT_SOURCE_DIR}")
 	find_library(SDL2_MAIN_LIBRARY SDL2main PATHS "${CMAKE_CURRENT_SOURCE_DIR}")
 	set(DLL_INSTALLED_LIBS "${CMAKE_CURRENT_SOURCE_DIR}/lib/SDL2.dll")
