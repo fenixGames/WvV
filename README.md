@@ -15,5 +15,5 @@ project using the directory specified after the arrow:
 ```
 C:\SDL2\lib\x86\SDL2.lib -> .\
 C:\SDL2\lib\x86\SDL2main.lib -> .\
-C:\SDL2\lib\x86\SDL2.dll -> .\lib
+C:\SDL2\lib\x86\SDL2.dll -> .\libSDL2
 ```
