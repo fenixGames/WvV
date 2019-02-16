@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WvV", "WvV\WvV.vcxproj", "{C7E9A598-10AA-4D94-B5EF-E280BE5FF2F9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Werewolves_vs_Vampires", "Werewolves_vs_vampires\Werewolves_vs_Vampires.vcxproj", "{C7E9A598-10AA-4D94-B5EF-E280BE5FF2F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
