@@ -7,6 +7,13 @@ Scene::is_finished()
 }
 
 void
-Scene::draw()
+Scene::draw(SDL_Surface * window)
 {
+	std::list<Node *>::iterator node;
+
+	for (node = nodes.begin(); node != nodes.end(); node++) {
+		SDL_Surface * surface = (*node)->getSurface();
+		if (surface != NULL)
+			SDL_BlitSurface(surface, NULL, window, NULL);
+	}
 }

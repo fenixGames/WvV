@@ -5,6 +5,8 @@
 #ifndef SCENE_HPP
 #include <list>
 
+#include <SDL.h>
+
 #include <node.hpp>
 
 class Scene {
@@ -14,7 +16,7 @@ public:
 	std::list<Node *> nodes;
 
 	bool is_finished(void);
-	void draw(void);
+	void draw(SDL_Surface *);
 };
 
 #endif
