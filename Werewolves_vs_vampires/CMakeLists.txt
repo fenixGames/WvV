@@ -5,13 +5,13 @@ set (CMAKE_CXX_STANDARD 11)
 SET(
 	SOURCES 
 		main.cpp
-		src/window.cpp
+		src/graphic.cpp
 		src/sprite.cpp
+		src/node.cpp
+		src/window.cpp
 		src/exceptions.cpp
 		src/physics/geometry.cpp
 		src/scene.cpp
-		src/graphic.cpp
-		src/node.cpp
 )
 SET(INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
@@ -32,3 +32,4 @@ target_link_libraries(Werewolves_vs_Vampires ${SDL2_MAIN_LIBRARY})
 
 INSTALL(TARGETS Werewolves_vs_Vampires DESTINATION ${INSTALL_DIR})
 INSTALL(FILES ${DLL_INSTALLED_LIBS} DESTINATION ${INSTALL_DIR})
+INSTALL(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/resources" DESTINATION ${INSTALL_DIR})

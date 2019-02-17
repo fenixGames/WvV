@@ -1,14 +1,24 @@
 #include <iostream>
 #include <SDL.h>
+
+#include <sprite.hpp>
+#include <node.hpp>
+#include <scene.hpp>
 #include <window.hpp>
-using namespace std;
+
 
 int main(int argc, char * argv[])
 {
 	Window win(SCREEN_WIDTH, SCREEN_HEIGTH, "SDL Tutorial");
-
-	win.draw();
-	SDL_Delay(2000);
+	Scene first;
+	Node label;
+	Sprite * sprite = new Sprite("resources/hello_world.bmp");
+	
+	label.setGraphicResource((Graphic*)sprite);
+	first.nodes.push_back(&label);
+	win.sceneList.push_back(&first);
+	win.start();
+	
 	return 0;
 }
 
