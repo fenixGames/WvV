@@ -15,6 +15,9 @@ public:
 	Size size;
 	Graphic * graphicResource;
 
-	Node();
+	Node(const Point&, const Size&);
+	~Node();
+
+	SDL_Surface * getSurface();
 };
 #endif
