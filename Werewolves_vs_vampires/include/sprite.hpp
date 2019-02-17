@@ -4,6 +4,7 @@
 
 #ifndef SPRITE_HPP
 #include <SDL.h>
+
 #include <graphic.hpp>
 
 class Sprite : public Graphic {

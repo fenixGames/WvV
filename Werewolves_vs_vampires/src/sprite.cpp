@@ -1,5 +1,6 @@
-#include <sprite.hpp>
 #include <fstream>
+
+#include <sprite.hpp>
 #include <exceptions.hpp>
 
 Sprite::Sprite(const char * path_to_file) {

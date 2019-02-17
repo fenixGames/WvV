@@ -1,5 +1,7 @@
-#include <exceptions.hpp>
 #include <SDL.h>
+
+#include <exceptions.hpp>
+
 
 SDLException::SDLException(const char * msg) {
 	message = msg;
