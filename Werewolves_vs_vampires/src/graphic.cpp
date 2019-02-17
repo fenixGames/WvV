@@ -1,6 +1,12 @@
 #include <graphic.hpp>
 
+Graphic::Graphic()
+{
+	surface = NULL;
+}
+
 Graphic::~Graphic()
 {
-	SDL_FreeSurface(surface);
+	if (surface != NULL)
+		SDL_FreeSurface(surface);
 }
