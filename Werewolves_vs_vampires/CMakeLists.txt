@@ -1,7 +1,16 @@
 cmake_minimum_required (VERSION 3.10)
 project (Werewolves_vs_Vampires)
 
-SET(SOURCES main.cpp src/window.cpp)
+set (CMAKE_CXX_STANDARD 11)
+SET(
+	SOURCES 
+		main.cpp
+		src/window.cpp
+		src/sprite.cpp
+		src/exceptions.cpp
+		src/physics/geometry.cpp
+		src/scene.cpp
+)
 SET(INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
