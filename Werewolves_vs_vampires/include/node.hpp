@@ -12,14 +12,17 @@
 #include <graphic.hpp>
 
 class Node {
+protected:
+	Graphic * graphicResource;
 public:
 	Point position;
 	Size size;
-	Graphic * graphicResource;
 
+	Node();
 	Node(const Point&, const Size&);
-	~Node();
+
 
 	SDL_Surface * getSurface();
+	void setGraphicResource(Graphic *);
 };
 #endif
