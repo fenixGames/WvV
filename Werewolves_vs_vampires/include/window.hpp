@@ -27,5 +27,6 @@ public:
 	~Window();
 
 	void draw(void);
+	void start();
 };
 #endif

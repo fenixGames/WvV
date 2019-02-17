@@ -23,3 +23,21 @@ Window::draw() {
 		SDL_MapRGB(windowSurface->format, 0xFF, 0xFF, 0xFF));
 	SDL_UpdateWindowSurface(window);
 }
+
+void
+Window::start() {
+	currentScene = sceneList.begin();
+
+	while (currentScene != sceneList.end())	{
+		if ((*currentScene)->is_finished()) {
+			currentScene++;
+		}
+
+		(*currentScene)->draw(windowSurface);
+
+		SDL_UpdateWindowSurface(window);
+		// Testing
+		SDL_Delay(2000);
+		break;
+	}
+}
