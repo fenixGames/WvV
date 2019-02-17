@@ -1,5 +1,10 @@
 #include <scene.hpp>
 
+Scene::Scene()
+{
+	finished = false;
+}
+
 bool
 Scene::is_finished()
 {

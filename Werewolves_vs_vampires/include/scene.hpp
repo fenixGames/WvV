@@ -17,6 +17,7 @@ protected:
 public:
 	std::list<Node *> nodes;
 
+	Scene();
 	bool is_finished(void);
 	void draw(SDL_Surface *);
 };
