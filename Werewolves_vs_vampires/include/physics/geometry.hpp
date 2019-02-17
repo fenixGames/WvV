@@ -9,6 +9,7 @@ public:
 	float x;
 	float y;
 
+	Point();
 	Point(float, float);
 	Point operator + (const Point&);
 	Point operator - (const Point&);
@@ -19,6 +20,7 @@ public:
 	int width;
 	int height;
 
+	Size();
 	Size(int, int);
 };
 #endif
