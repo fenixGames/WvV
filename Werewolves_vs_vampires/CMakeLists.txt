@@ -10,6 +10,7 @@ SET(
 		src/exceptions.cpp
 		src/physics/geometry.cpp
 		src/scene.cpp
+		src/graphic.cpp
 )
 SET(INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 

@@ -9,6 +9,7 @@ class Graphic {
 protected:
 	SDL_Surface * surface;
 public:
+	~Graphic();
 	virtual SDL_Surface * getPrintingSurface() = 0;
 };
 #endif
