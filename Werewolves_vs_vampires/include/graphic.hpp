@@ -3,6 +3,8 @@
  */
 
 #ifndef GRAPHIC_HPP
+#define GRAPHIC_HPP
+
 #include <SDL.h>
 
 class Graphic {

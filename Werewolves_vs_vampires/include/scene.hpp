@@ -3,6 +3,8 @@
  */
 
 #ifndef SCENE_HPP
+#define SCENE_HPP
+
 #include <list>
 
 #include <SDL.h>

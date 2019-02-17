@@ -4,6 +4,8 @@
  */
 
 #ifndef NODE_HPP
+#define NODE_HPP
+
 #include <SDL.h>
 
 #include <physics/geometry.hpp>

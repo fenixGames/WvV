@@ -4,6 +4,8 @@
  */
 
 #ifndef GEOMETRY_HPP
+#define GEOMETRY_HPP
+
 class Point {
 public:
 	float x;

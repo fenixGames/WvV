@@ -2,6 +2,8 @@
  * Errors handling through exceptions.
  */
 #ifndef EXCEPTIONS_HPP
+#define EXCEPTIONS_HPP
+
 #include <exception>
 #include <string>
 
