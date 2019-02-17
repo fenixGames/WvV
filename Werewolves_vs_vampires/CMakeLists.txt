@@ -11,6 +11,7 @@ SET(
 		src/physics/geometry.cpp
 		src/scene.cpp
 		src/graphic.cpp
+		src/node.cpp
 )
 SET(INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
