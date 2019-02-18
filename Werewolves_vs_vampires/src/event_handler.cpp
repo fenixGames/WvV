@@ -46,14 +46,13 @@ EventController::handleEvents() {
 	}
 }
 
-QuitHandler::QuitHandler(SDL_EventType eventType, callbackFunc quitFunc):
-	EventHandler(eventType)
+QuitHandler::QuitHandler():
+	EventHandler(SDL_QUIT)
 {
-	quitCallback = quitFunc;
 }
 
 void
 QuitHandler::handle(SDL_Event * ev)
 {
-	(*quitCallback)();
+	exit(0);
 }

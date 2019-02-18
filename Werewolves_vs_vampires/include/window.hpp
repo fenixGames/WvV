@@ -19,9 +19,7 @@ private:
 	SDL_Surface * windowSurface;
 	SDL_Window * window;
 	std::list<Scene *>::iterator itScenes;
-	bool doFinish;
 
-	void quit();
 	Scene * getCurrentScene();
 	
 public:

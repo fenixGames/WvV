@@ -28,13 +28,3 @@ void
 Scene::setEventHandlerController(EventController * controller) {
 	evController = controller;
 }
-
-void
-Scene::setQuitter(QuitHandler *quitHandler)
-{
-	if (evController == NULL)
-		return;
-
-	if (!evController->isEventHandlerAdded(SDL_QUIT))
-		evController->addEventHandler(quitHandler);
-}

@@ -24,7 +24,6 @@ public:
 	void draw(SDL_Surface *);
 
 	void setEventHandlerController(EventController *);
-	void setQuitter(QuitHandler *);
 };
 
 #endif
