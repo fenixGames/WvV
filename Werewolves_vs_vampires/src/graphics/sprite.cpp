@@ -30,6 +30,12 @@ Sprite::Sprite(const char * path_to_file, SDL_Renderer * renderer) {
 	SDL_FreeSurface(image);
 }
 
+Sprite::~Sprite()
+{
+	if (texture != NULL)
+		SDL_DestroyTexture(texture);
+}
+
 SDL_Texture *
 Sprite::getTexture() {
 	return texture;
