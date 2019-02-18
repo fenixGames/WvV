@@ -11,23 +11,30 @@ EventHandler::getType() {
 	return type;
 }
 
-void
-EventHandlerController::addEventHandler(EventHandler * eventHandler) {
+bool
+EventController::isEventHandlerAdded(SDL_EventType type) {
 	std::list<EventHandler *>::iterator iteratorEvents;
 
 	for (iteratorEvents = eventHandlers.begin(); iteratorEvents != eventHandlers.end(); iteratorEvents++) {
-		if ((*iteratorEvents)->getType() == eventHandler->getType()) {
-			std::string msg("Event Handler already allocated: ");
-			msg += eventHandler->getType();
+		if ((*iteratorEvents)->getType() == type)
+			return true;
+	}
+	return false;
+}
 
-			throw std::invalid_argument(msg);
-		}
+void
+EventController::addEventHandler(EventHandler * eventHandler) {
+	if (isEventHandlerAdded(eventHandler->getType())) {
+		std::string msg("Event Handler already allocated: ");
+		msg += eventHandler->getType();
+
+		throw std::invalid_argument(msg);
 	}
 	eventHandlers.push_back(eventHandler);
 }
 
 void
-EventHandlerController::handleEvents() {
+EventController::handleEvents() {
 	SDL_Event ev;
 	std::list<EventHandler *>::iterator iteratorEvents;
 

@@ -32,11 +32,12 @@ public:
 	virtual void handle(SDL_Event *);
 };
 
-class EventHandlerController {
+class EventController {
 protected:
 	std::list<EventHandler *> eventHandlers;
 public:
 	void addEventHandler(EventHandler *);
+	bool isEventHandlerAdded(SDL_EventType);
 
 	void handleEvents();
 };
