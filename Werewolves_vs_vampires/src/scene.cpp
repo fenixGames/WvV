@@ -3,6 +3,7 @@
 Scene::Scene()
 {
 	finished = false;
+	evController = NULL;
 }
 
 bool
@@ -21,4 +22,19 @@ Scene::draw(SDL_Surface * window)
 		if (surface != NULL)
 			SDL_BlitSurface(surface, NULL, window, NULL);
 	}
+}
+
+void
+Scene::setEventHandlerController(EventController * controller) {
+	evController = controller;
+}
+
+void
+Scene::setQuitter(QuitHandler *quitHandler)
+{
+	if (evController == NULL)
+		return;
+
+	if (!evController->isEventHandlerAdded(SDL_QUIT))
+		evController->addEventHandler(quitHandler);
 }

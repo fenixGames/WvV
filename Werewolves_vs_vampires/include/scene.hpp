@@ -10,16 +10,21 @@
 #include <SDL.h>
 
 #include <node.hpp>
+#include <event_handler.hpp>
 
 class Scene {
 protected:
 	bool finished;
+	EventController * evController;
 public:
 	std::list<Node *> nodes;
 
 	Scene();
 	bool is_finished(void);
 	void draw(SDL_Surface *);
+
+	void setEventHandlerController(EventController *);
+	void setQuitter(QuitHandler *);
 };
 
 #endif
