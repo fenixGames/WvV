@@ -15,11 +15,15 @@ const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGTH = 480;
 
 class Window {
-protected:
+private:
 	SDL_Surface * windowSurface;
 	SDL_Window * window;
+	std::list<Scene *>::iterator itScenes;
+	bool doFinish;
 
-	std::list<Scene *>::iterator currentScene;
+	void quit();
+	Scene * getCurrentScene();
+	
 public:
 	std::list<Scene *> sceneList;
 

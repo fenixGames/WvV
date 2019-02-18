@@ -11,6 +11,7 @@ Window::Window(int width, int height, std::string title) {
 		throw SDLException("Unable to create Window");
 
 	windowSurface = SDL_GetWindowSurface(window);
+	doFinish = false;
 }
 
 Window::~Window() {
@@ -26,18 +27,37 @@ Window::draw() {
 
 void
 Window::start() {
-	currentScene = sceneList.begin();
+	Scene * currentScene;
+	itScenes = sceneList.begin();
 
-	while (currentScene != sceneList.end())	{
-		if ((*currentScene)->is_finished()) {
-			currentScene++;
-		}
+	while (!doFinish)	{
+		currentScene = getCurrentScene();
+		if (currentScene == NULL)
+			break;
 
-		(*currentScene)->draw(windowSurface);
+		currentScene->draw(windowSurface);
 
 		SDL_UpdateWindowSurface(window);
 		// Testing
 		SDL_Delay(2000);
 		break;
 	}
+}
+
+void
+Window::quit()
+{
+	doFinish = true;
+}
+
+Scene *
+Window::getCurrentScene()
+{
+	if (doFinish)
+		return NULL;
+	while ((*itScenes)->is_finished() && itScenes != sceneList.end())
+		itScenes++;
+	if (itScenes != sceneList.end())
+		return *itScenes;
+	return NULL;
 }
