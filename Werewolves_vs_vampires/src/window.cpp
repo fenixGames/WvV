@@ -47,3 +47,8 @@ Window::getCurrentScene()
 		return *itScenes;
 	return NULL;
 }
+
+const SDL_Surface *
+Window::getSurface() const {
+	return windowSurface;
+}

@@ -11,8 +11,8 @@ int main(int argc, char * argv[])
 {
 	Window win(SCREEN_WIDTH, SCREEN_HEIGTH, "SDL Tutorial");
 	Scene first;
-	Node label;
-	Sprite * sprite = new Sprite("resources/hello_world.bmp");
+	Node label(Point(), Size(SCREEN_WIDTH, SCREEN_HEIGTH));
+	Sprite * sprite = new Sprite("resources/hello_world.bmp", win.getSurface()->format);
 	EventController * evController = new EventController();
 
 	evController->addEventHandler(new QuitHandler());

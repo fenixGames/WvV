@@ -30,5 +30,7 @@ public:
 
 	void draw(void);
 	void start();
+
+	const SDL_Surface * getSurface() const;
 };
 #endif

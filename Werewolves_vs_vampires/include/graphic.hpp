@@ -13,6 +13,7 @@ protected:
 public:
 	Graphic();
 	~Graphic();
+
 	virtual SDL_Surface * getPrintingSurface() = 0;
 };
 #endif
