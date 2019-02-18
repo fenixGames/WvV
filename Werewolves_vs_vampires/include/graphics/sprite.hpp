@@ -10,8 +10,8 @@
 
 class Sprite : public Graphic {
 public:
-	Sprite(const char * path_to_sprite, SDL_PixelFormat *);
+	Sprite(const char * path_to_sprite, SDL_Renderer *);
 
-	virtual SDL_Surface * getPrintingSurface();
+	virtual SDL_Texture * getTexture();
 };
 #endif

@@ -17,6 +17,7 @@ const int SCREEN_HEIGTH = 480;
 class Window {
 private:
 	SDL_Surface * windowSurface;
+	SDL_Renderer * renderer;
 	SDL_Window * window;
 	std::list<Scene *>::iterator itScenes;
 
@@ -32,5 +33,6 @@ public:
 	void start();
 
 	const SDL_Surface * getSurface() const;
+	SDL_Renderer * getRenderer();
 };
 #endif

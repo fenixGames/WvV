@@ -9,11 +9,11 @@
 
 class Graphic {
 protected:
-	SDL_Surface * surface;
+	SDL_Texture * texture;
 public:
 	Graphic();
 	~Graphic();
 
-	virtual SDL_Surface * getPrintingSurface() = 0;
+	virtual SDL_Texture * getTexture() = 0;
 };
 #endif

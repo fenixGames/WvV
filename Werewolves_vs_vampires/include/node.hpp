@@ -22,7 +22,7 @@ public:
 	Node(const Point&, const Size&);
 
 
-	SDL_Surface * getSurface();
+	SDL_Texture * getTexture();
 	void setGraphicResource(Graphic *);
 };
 #endif

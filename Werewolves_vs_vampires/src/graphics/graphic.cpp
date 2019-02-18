@@ -2,11 +2,11 @@
 
 Graphic::Graphic()
 {
-	surface = NULL;
+	texture = NULL;
 }
 
 Graphic::~Graphic()
 {
-	if (surface != NULL)
-		SDL_FreeSurface(surface);
+	if (texture != NULL)
+		SDL_DestroyTexture(texture);
 }

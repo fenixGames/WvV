@@ -13,11 +13,11 @@ Node::Node(const Point& startPoint, const Size& startSize)
 }
 
 
-SDL_Surface *
-Node::getSurface()
+SDL_Texture *
+Node::getTexture()
 {
 	if (graphicResource != NULL)
-		return graphicResource->getPrintingSurface();
+		return graphicResource->getTexture();
 	return NULL;
 }
 

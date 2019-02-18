@@ -5,7 +5,7 @@
 #include <graphics/sprite.hpp>
 #include <exceptions.hpp>
 
-Sprite::Sprite(const char * path_to_file, SDL_PixelFormat * format) {
+Sprite::Sprite(const char * path_to_file, SDL_Renderer * renderer) {
 	std::ifstream file(path_to_file);
 	SDL_Surface * image;
 
@@ -21,8 +21,8 @@ Sprite::Sprite(const char * path_to_file, SDL_PixelFormat * format) {
 		throw SDLException(msg.c_str());
 	}
 
-	surface = SDL_ConvertSurface(image, format, 0);
-	if (surface == NULL) {
+	texture = SDL_CreateTextureFromSurface(renderer, image);
+	if (texture == NULL) {
 		std::string msg = "Could not optimize sprite ";
 		msg += path_to_file;
 		throw SDLException(msg.c_str());
@@ -30,7 +30,7 @@ Sprite::Sprite(const char * path_to_file, SDL_PixelFormat * format) {
 	SDL_FreeSurface(image);
 }
 
-SDL_Surface *
-Sprite::getPrintingSurface() {
-	return surface;
+SDL_Texture *
+Sprite::getTexture() {
+	return texture;
 }

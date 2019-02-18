@@ -5,14 +5,11 @@
 #include <SDL_image.h>
 
 Window::Window(int width, int height, std::string title) {
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-		std::string msg = "SDL Inititalization failed ";
-		msg += SDL_GetError();
-		throw SDLException(msg.c_str());
-	}
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
+		throw SDLException("SDL Inititalization failed ");
 
 	int imageFlags = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF;
-	if (IMG_Init(imageFlags) & imageFlags == 0) {
+	if ((IMG_Init(imageFlags) & imageFlags) == 0) {
 		std::string msg = "Image inititalization failed ";
 		msg += IMG_GetError();
 		throw SDLException(msg.c_str());
@@ -24,9 +21,15 @@ Window::Window(int width, int height, std::string title) {
 		throw SDLException("Unable to create Window");
 
 	windowSurface = SDL_GetWindowSurface(window);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	if (renderer == NULL)
+		throw SDLImageException("Unable to create renderer");
+
+	SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 }
 
 Window::~Window() {
+	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 }
 
@@ -46,7 +49,6 @@ Window::start() {
 		currentScene->draw(windowSurface);
 		currentScene->evController->handleEvents();
 
-		SDL_UpdateWindowSurface(window);
 		SDL_Delay(200);
 	}
 }
@@ -64,4 +66,9 @@ Window::getCurrentScene()
 const SDL_Surface *
 Window::getSurface() const {
 	return windowSurface;
+}
+
+SDL_Renderer *
+Window::getRenderer() {
+	return renderer;
 }
