@@ -25,6 +25,10 @@ if (WIN32)
 	set(DLL_INSTALLED_LIBS 
 		"${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/SDL2.dll"
 		"${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/SDL2_image.dll"
+		"${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/libjpeg-9.dll"
+		"${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/libpng16-16.dll"
+		"${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/libtiff-5.dll"
+		"${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/zlib1.dll"
 	)
 
 else (WIN32)
