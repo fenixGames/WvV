@@ -2,7 +2,7 @@
 
 #include <SDL_image.h>
 
-#include <sprite.hpp>
+#include <graphics/sprite.hpp>
 #include <exceptions.hpp>
 
 Sprite::Sprite(const char * path_to_file, SDL_PixelFormat * format) {

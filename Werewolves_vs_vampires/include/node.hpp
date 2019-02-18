@@ -9,7 +9,7 @@
 #include <SDL.h>
 
 #include <physics/geometry.hpp>
-#include <graphic.hpp>
+#include <graphics/graphic.hpp>
 
 class Node {
 protected:

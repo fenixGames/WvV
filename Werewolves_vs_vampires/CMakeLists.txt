@@ -5,14 +5,14 @@ set (CMAKE_CXX_STANDARD 11)
 SET(
 	SOURCES 
 		main.cpp
-		src/graphic.cpp
-		src/sprite.cpp
 		src/node.cpp
 		src/window.cpp
 		src/exceptions.cpp
-		src/physics/geometry.cpp
 		src/scene.cpp
 		src/event_handler.cpp
+		src/physics/geometry.cpp
+		src/graphics/graphic.cpp
+		src/graphics/sprite.cpp
 )
 SET(INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 

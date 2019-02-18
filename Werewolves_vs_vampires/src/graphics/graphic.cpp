@@ -1,4 +1,4 @@
-#include <graphic.hpp>
+#include <graphics/graphic.hpp>
 
 Graphic::Graphic()
 {
