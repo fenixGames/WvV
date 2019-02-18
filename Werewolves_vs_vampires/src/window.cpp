@@ -31,11 +31,12 @@ Window::start() {
 
 	while ((currentScene = getCurrentScene()) != NULL)	{
 		currentScene->draw(windowSurface);
+		currentScene->evController->handleEvents();
 
 		SDL_UpdateWindowSurface(window);
 		// Testing
-		SDL_Delay(2000);
-		break;
+		//SDL_Delay(2000);
+		//break;
 	}
 }
 

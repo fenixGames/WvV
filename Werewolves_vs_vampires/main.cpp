@@ -13,9 +13,13 @@ int main(int argc, char * argv[])
 	Scene first;
 	Node label;
 	Sprite * sprite = new Sprite("resources/hello_world.bmp");
+	EventController * evController = new EventController();
+
+	evController->addEventHandler(new QuitHandler());
 	
 	label.setGraphicResource((Graphic*)sprite);
 	first.nodes.push_back(&label);
+	first.evController = evController;
 	win.sceneList.push_back(&first);
 	win.start();
 	
