@@ -19,8 +19,8 @@ Scene::draw(SDL_Surface * window)
 	SDL_Rect stretchRect;
 
 	for (node = nodes.begin(); node != nodes.end(); node++) {
-		stretchRect.x = (*node)->position.x;
-		stretchRect.y = (*node)->position.y;
+		stretchRect.x = (int)(*node)->position.x;
+		stretchRect.y = (int)(*node)->position.y;
 		stretchRect.w = (*node)->size.width;
 		stretchRect.h = (*node)->size.height;
 
