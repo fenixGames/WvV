@@ -1,10 +1,15 @@
 #include <SDL.h>
+#include <SDL_image.h>
 
 #include <exceptions.hpp>
 
 
 SDLException::SDLException(const char * msg) {
 	message = msg;
+}
+
+SDLException::SDLException(const std::string msg) :
+	SDLException(msg.c_str()) {
 }
 
 const char *
@@ -20,10 +25,41 @@ FileSystemError::FileSystemError(const char * msg, const char * p):
 	path = p;
 }
 
+FileSystemError::FileSystemError(const char * msg, const std::string p) : 
+	FileSystemError(msg, p.c_str()) 
+{
+}
+
+FileSystemError::FileSystemError(const std::string msg, const char * path) :
+	FileSystemError(msg.c_str(), path)
+{
+}
+
+FileSystemError::FileSystemError(const std::string msg, const std::string path) :
+	FileSystemError(msg.c_str(), path.c_str())
+{
+}
+
 const char *
 FileSystemError::what() const throw()
 {
 	std::string msg = std::runtime_error::what();
 	msg += " " + path;
+	return msg.c_str();
+}
+
+SDLImageException::SDLImageException(const char * msg) {
+	message = msg;
+}
+
+SDLImageException::SDLImageException(const std::string msg) :
+	SDLImageException(msg.c_str())
+{
+}
+
+const char *
+SDLImageException::what() const throw()
+{
+	std::string msg = message + IMG_GetError();
 	return msg.c_str();
 }

@@ -12,6 +12,7 @@ protected:
 	std::string message;
 public:
 	SDLException(const char * msg);
+	SDLException(const std::string);
 	virtual const char * what() const throw();
 };
 
@@ -20,6 +21,20 @@ protected:
 	std::string path;
 public:
 	FileSystemError(const char *, const char *);
+	FileSystemError(const std::string, const char *);
+	FileSystemError(const char *, const std::string);
+	FileSystemError(const std::string, const std::string);
+
+	virtual const char * what() const throw();
+};
+
+class SDLImageException : public std::exception {
+protected:
+	std::string message;
+public:
+	SDLImageException(const char *);
+	SDLImageException(const std::string);
+
 	virtual const char * what() const throw();
 };
 #endif
