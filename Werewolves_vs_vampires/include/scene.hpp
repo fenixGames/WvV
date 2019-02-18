@@ -15,15 +15,13 @@
 class Scene {
 protected:
 	bool finished;
-	EventController * evController;
 public:
+	EventController * evController;
 	std::list<Node *> nodes;
 
 	Scene();
 	bool is_finished(void);
 	void draw(SDL_Surface *);
-
-	void setEventHandlerController(EventController *);
 };
 
 #endif

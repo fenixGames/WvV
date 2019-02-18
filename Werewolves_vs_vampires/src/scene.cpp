@@ -23,8 +23,3 @@ Scene::draw(SDL_Surface * window)
 			SDL_BlitSurface(surface, NULL, window, NULL);
 	}
 }
-
-void
-Scene::setEventHandlerController(EventController * controller) {
-	evController = controller;
-}
