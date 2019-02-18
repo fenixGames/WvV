@@ -11,6 +11,8 @@
 #include <SDL.h>
 #include <list>
 
+typedef void(*callbackFunc)(void);
+
 class EventHandler {
 protected:
 	SDL_EventType type;
@@ -21,10 +23,21 @@ public:
 	virtual void handle(SDL_Event *) = 0;
 };
 
-class EventHandlerController {
+class QuitHandler : public EventHandler {
+protected:
+	callbackFunc quitCallback;
 public:
-	std::list<EventHandler *> eventHandlers;
+	QuitHandler(SDL_EventType, callbackFunc);
 
-	void handleEvent(SDL_Event *);
+	virtual void handle(SDL_Event *);
+};
+
+class EventHandlerController {
+protected:
+	std::list<EventHandler *> eventHandlers;
+public:
+	void addEventHandler(EventHandler *);
+
+	void handleEvents();
 };
 #endif

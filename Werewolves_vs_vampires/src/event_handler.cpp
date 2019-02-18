@@ -3,8 +3,6 @@
 
 EventHandler::EventHandler(SDL_EventType eventType)
 {
-	if (eventType == SDL_QUIT)
-		throw SDLException("Event type QUIT cannot be handled");
 	type = eventType;
 }
 
@@ -14,11 +12,41 @@ EventHandler::getType() {
 }
 
 void
-EventHandlerController::handleEvent(SDL_Event * ev) {
-	std::list<EventHandler *>::iterator eventHandler;
+EventHandlerController::addEventHandler(EventHandler * eventHandler) {
+	std::list<EventHandler *>::iterator iteratorEvents;
 
-	for (eventHandler = eventHandlers.begin(); eventHandler != eventHandlers.end(); eventHandler++) {
-		if ((*eventHandler)->getType() == ev->type)
-			(*eventHandler)->handle(ev);
+	for (iteratorEvents = eventHandlers.begin(); iteratorEvents != eventHandlers.end(); iteratorEvents++) {
+		if ((*iteratorEvents)->getType() == eventHandler->getType()) {
+			std::string msg("Event Handler already allocated: ");
+			msg += eventHandler->getType();
+
+			throw std::invalid_argument(msg);
+		}
 	}
+	eventHandlers.push_back(eventHandler);
+}
+
+void
+EventHandlerController::handleEvents() {
+	SDL_Event ev;
+	std::list<EventHandler *>::iterator iteratorEvents;
+
+	while (SDL_PollEvent(&ev)) {
+		for (iteratorEvents = eventHandlers.begin(); iteratorEvents != eventHandlers.end(); iteratorEvents++) {
+			if ((*iteratorEvents)->getType() == ev.type)
+				(*iteratorEvents)->handle(&ev);
+		}
+	}
+}
+
+QuitHandler::QuitHandler(SDL_EventType eventType, callbackFunc quitFunc):
+	EventHandler(eventType)
+{
+	quitCallback = quitFunc;
+}
+
+void
+QuitHandler::handle(SDL_Event * ev)
+{
+	(*quitCallback)();
 }
