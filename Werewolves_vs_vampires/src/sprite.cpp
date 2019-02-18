@@ -1,5 +1,7 @@
 #include <fstream>
 
+#include <SDL_image.h>
+
 #include <sprite.hpp>
 #include <exceptions.hpp>
 
@@ -10,10 +12,12 @@ Sprite::Sprite(const char * path_to_file, SDL_PixelFormat * format) {
 	if (!file.good())
 		throw FileSystemError("Sprite do not found", path_to_file);
 
-	image = SDL_LoadBMP(path_to_file);
+	image = IMG_Load(path_to_file);
 	if (image == NULL) {
 		std::string msg = "Could not load sprite ";
 		msg += path_to_file;
+		msg += " ";
+		msg += IMG_GetError();
 		throw SDLException(msg.c_str());
 	}
 

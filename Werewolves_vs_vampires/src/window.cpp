@@ -1,9 +1,22 @@
+#include <string>
+
 #include <window.hpp>
 #include <exceptions.hpp>
+#include <SDL_image.h>
 
 Window::Window(int width, int height, std::string title) {
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
-		throw SDLException("SDL Inititalization failed");
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+		std::string msg = "SDL Inititalization failed ";
+		msg += SDL_GetError();
+		throw SDLException(msg.c_str());
+	}
+
+	int imageFlags = IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF;
+	if (IMG_Init(imageFlags) & imageFlags == 0) {
+		std::string msg = "Image inititalization failed ";
+		msg += IMG_GetError();
+		throw SDLException(msg.c_str());
+	}
 
 	window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);

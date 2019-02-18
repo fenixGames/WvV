@@ -21,7 +21,11 @@ if (WIN32)
 	include_directories("C:/SDL2/include" "C:/SDL2-Image/include")
 	find_library(SDL2_LIBRARY SDL2 PATHS "${CMAKE_CURRENT_SOURCE_DIR}/libSDL2")
 	find_library(SDL2_MAIN_LIBRARY SDL2main PATHS "${CMAKE_CURRENT_SOURCE_DIR}/libSDL2")
-	set(DLL_INSTALLED_LIBS "${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/SDL2.dll")
+	find_library(SDL2_IMAGE_LIBRARY SDL2_image PATHS "${CMAKE_CURRENT_SOURCE_DIR}/libSDL2")
+	set(DLL_INSTALLED_LIBS 
+		"${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/SDL2.dll"
+		"${CMAKE_CURRENT_SOURCE_DIR}/libSDL2/SDL2_image.dll"
+	)
 
 else (WIN32)
 	set(DLL_INSTALLED_LIBS "")
@@ -30,6 +34,7 @@ endif (WIN32)
 add_executable(Werewolves_vs_Vampires ${SOURCES})
 target_link_libraries(Werewolves_vs_Vampires ${SDL2_LIBRARY})
 target_link_libraries(Werewolves_vs_Vampires ${SDL2_MAIN_LIBRARY})
+target_link_libraries(Werewolves_vs_Vampires ${SDL2_IMAGE_LIBRARY})
 
 INSTALL(TARGETS Werewolves_vs_Vampires DESTINATION ${INSTALL_DIR})
 INSTALL(FILES ${DLL_INSTALLED_LIBS} DESTINATION ${INSTALL_DIR})
