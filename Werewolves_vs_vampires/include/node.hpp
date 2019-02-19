@@ -14,6 +14,12 @@
 class Node {
 protected:
 	Graphic * graphicResource;
+
+	/* A node uses relative coordinates, 
+	   so we need to keep track of the ancestory to
+	   calculate the absolute coordinates.
+	 */
+	Node * parent;
 public:
 	Point position;
 	Size size;
@@ -24,5 +30,6 @@ public:
 
 	SDL_Texture * getTexture();
 	void setGraphicResource(Graphic *);
+	void fillDimentions(SDL_Rect *);
 };
 #endif
