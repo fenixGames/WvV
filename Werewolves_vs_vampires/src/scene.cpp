@@ -14,17 +14,14 @@ Scene::is_finished()
 }
 
 void
-Scene::draw(SDL_Surface * window)
+Scene::draw()
 {
 	std::list<Node *>::iterator node;
 	SDL_Rect stretchRect;
 
 	SDL_RenderClear(renderer);
 	for (node = nodes.begin(); node != nodes.end(); node++) {
-		stretchRect.x = (int)(*node)->position.x;
-		stretchRect.y = (int)(*node)->position.y;
-		stretchRect.w = (*node)->size.width;
-		stretchRect.h = (*node)->size.height;
+		(*node)->fillDimentions(&stretchRect);
 
 		SDL_Texture * surface = (*node)->getTexture();
 		if (surface != NULL)

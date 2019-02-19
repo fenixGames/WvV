@@ -46,7 +46,7 @@ Window::start() {
 	itScenes = sceneList.begin();
 
 	while ((currentScene = getCurrentScene()) != NULL)	{
-		currentScene->draw(windowSurface);
+		currentScene->draw();
 		currentScene->evController->handleEvents();
 
 		SDL_Delay(200);

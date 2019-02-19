@@ -22,7 +22,7 @@ public:
 
 	Scene(SDL_Renderer *);
 	bool is_finished(void);
-	void draw(SDL_Surface *);
+	void draw();
 };
 
 #endif
