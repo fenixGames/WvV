@@ -9,6 +9,7 @@ SET(
 		src/window.cpp
 		src/exceptions.cpp
 		src/scene.cpp
+		src/viewport.cpp
 		src/event_handler.cpp
 		src/physics/geometry.cpp
 		src/graphics/sprite.cpp

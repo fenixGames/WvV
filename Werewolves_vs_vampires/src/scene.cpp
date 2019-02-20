@@ -1,10 +1,9 @@
 #include <scene.hpp>
 
-Scene::Scene(SDL_Renderer * render)
+Scene::Scene()
 {
 	finished = false;
 	evController = NULL;
-	renderer = render;
 }
 
 bool
@@ -16,16 +15,16 @@ Scene::is_finished()
 void
 Scene::draw()
 {
-	std::list<Node *>::iterator node;
+	std::list<Viewport *>::iterator itViews;
 	SDL_Rect stretchRect;
 
-	SDL_RenderClear(renderer);
-	for (node = nodes.begin(); node != nodes.end(); node++) {
-		(*node)->fillDimentions(&stretchRect);
-
-		SDL_Texture * texture = (*node)->getTexture();
-		if (texture != NULL)
-			SDL_RenderCopy(renderer, texture, NULL, &stretchRect);
+	for (itViews = this->viewports.begin(); itViews != this->viewports.end(); itViews++) {
+		(*itViews)->renderNodes(&this->nodes);
 	}
-	SDL_RenderPresent(renderer);
+	
+}
+
+void
+Scene::addViewport(Viewport *viewport) {
+	this->viewports.push_back(viewport);
 }

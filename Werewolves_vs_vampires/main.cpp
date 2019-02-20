@@ -10,7 +10,8 @@
 int main(int argc, char * argv[])
 {
 	Window win(SCREEN_WIDTH, SCREEN_HEIGTH, "SDL Tutorial");
-	Scene first(win.getRenderer());
+	Scene first;
+	Viewport vp(Point(), Point(), Size(SCREEN_WIDTH, SCREEN_HEIGTH), win.getRenderer());
 	Node label(Point(), Size(SCREEN_WIDTH, SCREEN_HEIGTH));
 	Sprite * sprite = new Sprite("resources/hello_world.png", win.getRenderer());
 	EventController * evController = new EventController();
@@ -18,6 +19,7 @@ int main(int argc, char * argv[])
 	evController->addEventHandler(new QuitHandler());
 	
 	label.setGraphicResource((Graphic*)sprite);
+	first.addViewport(&vp);
 	first.nodes.push_back(&label);
 	first.evController = evController;
 	win.sceneList.push_back(&first);

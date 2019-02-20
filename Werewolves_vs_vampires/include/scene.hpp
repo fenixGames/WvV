@@ -11,18 +11,22 @@
 
 #include <node.hpp>
 #include <event_handler.hpp>
+#include <viewport.hpp>
 
 class Scene {
 protected:
 	bool finished;
-	SDL_Renderer * renderer;
+
+	std::list<Viewport *> viewports;
 public:
 	EventController * evController;
 	std::list<Node *> nodes;
 
-	Scene(SDL_Renderer *);
+	Scene();
 	bool is_finished(void);
 	void draw();
+
+	void addViewport(Viewport *);
 };
 
 #endif
