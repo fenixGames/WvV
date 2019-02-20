@@ -6,6 +6,7 @@
 #ifndef NODE_HPP
 #define NODE_HPP
 
+#include <mutex>
 #include <SDL.h>
 
 #include <physics/geometry.hpp>
@@ -13,7 +14,11 @@
 
 class Node {
 protected:
+	std::mutex mutex;
+
 	Graphic * graphicResource;
+	Point position;
+	Size size;
 
 	/* A node uses relative coordinates, 
 	   so we need to keep track of the ancestory to
@@ -21,12 +26,12 @@ protected:
 	 */
 	Node * parent;
 public:
-	Point position;
-	Size size;
 
 	Node();
 	Node(const Point&, const Size&);
 
+	void setPosition(const Point&);
+	void setSize(const Size&);
 
 	SDL_Texture * getTexture();
 	void setGraphicResource(Graphic *);

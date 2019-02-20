@@ -6,9 +6,9 @@ Node::Node() : Node(Point(0, 0), Size(0, 0))
 
 Node::Node(const Point& startPoint, const Size& startSize)
 {
-	position = startPoint;
-	size = startSize;
-	graphicResource = NULL;
+	this->setPosition(startPoint);
+	this->setSize(startSize);
+	this->setGraphicResource(NULL);
 	this->parent = NULL;
 }
 
@@ -16,14 +16,20 @@ Node::Node(const Point& startPoint, const Size& startSize)
 SDL_Texture *
 Node::getTexture()
 {
+	SDL_Texture * texture;
+
+	this->mutex.lock();
 	if (graphicResource != NULL)
-		return graphicResource->getTexture();
-	return NULL;
+		texture = graphicResource->getTexture();
+	this->mutex.unlock();
+	return texture;
 }
 
 void
 Node::setGraphicResource(Graphic * resource) {
+	this->mutex.lock();
 	graphicResource = resource;
+	this->mutex.unlock();
 }
 
 void 
@@ -39,4 +45,14 @@ Node::fillDimentions(SDL_Rect *rect) {
 		rect->y += (int)root->position.y;
 		root = root->parent;
 	}
+}
+
+void
+Node::setPosition(const Point& point) {
+	this->position = point;
+}
+
+void
+Node::setSize(const Size& size) {
+	this->size = size;
 }
