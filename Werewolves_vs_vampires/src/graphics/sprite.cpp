@@ -5,7 +5,7 @@
 #include <graphics/sprite.hpp>
 #include <exceptions.hpp>
 
-Sprite::Sprite(const char * path_to_file, SDL_Renderer * renderer) {
+Sprite::Sprite(const char * path_to_file, Color& alpha, SDL_Renderer * renderer) {
 	std::ifstream file(path_to_file);
 	SDL_Surface * image;
 
@@ -21,6 +21,8 @@ Sprite::Sprite(const char * path_to_file, SDL_Renderer * renderer) {
 		throw SDLException(msg.c_str());
 	}
 
+	SDL_SetColorKey(image, SDL_TRUE, 
+		SDL_MapRGB(image->format, alpha.red, alpha.green, alpha.blue));
 	texture = SDL_CreateTextureFromSurface(renderer, image);
 	if (texture == NULL) {
 		std::string msg = "Could not optimize sprite ";

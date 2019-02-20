@@ -13,6 +13,7 @@ SET(
 		src/event_handler.cpp
 		src/physics/geometry.cpp
 		src/graphics/sprite.cpp
+		src/graphics/graphic.cpp
 )
 SET(INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 

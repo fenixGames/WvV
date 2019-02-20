@@ -13,7 +13,7 @@ int main(int argc, char * argv[])
 	Scene first;
 	Viewport vp(Point(), Point(), Size(SCREEN_WIDTH, SCREEN_HEIGTH), win.getRenderer());
 	Node label(Point(), Size(SCREEN_WIDTH, SCREEN_HEIGTH));
-	Sprite * sprite = new Sprite("resources/hello_world.png", win.getRenderer());
+	Sprite * sprite = new Sprite("resources/hello_world.png", Color(0xFFFFFF), win.getRenderer());
 	EventController * evController = new EventController();
 
 	evController->addEventHandler(new QuitHandler());
