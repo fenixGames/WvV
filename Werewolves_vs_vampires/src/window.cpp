@@ -21,7 +21,7 @@ Window::Window(int width, int height, std::string title) {
 		throw SDLException("Unable to create Window");
 
 	windowSurface = SDL_GetWindowSurface(window);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (renderer == NULL)
 		throw SDLImageException("Unable to create renderer");
 
