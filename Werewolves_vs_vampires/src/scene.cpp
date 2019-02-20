@@ -23,9 +23,9 @@ Scene::draw()
 	for (node = nodes.begin(); node != nodes.end(); node++) {
 		(*node)->fillDimentions(&stretchRect);
 
-		SDL_Texture * surface = (*node)->getTexture();
-		if (surface != NULL)
-			SDL_RenderCopy(renderer, surface, NULL, &stretchRect);
+		SDL_Texture * texture = (*node)->getTexture();
+		if (texture != NULL)
+			SDL_RenderCopy(renderer, texture, NULL, &stretchRect);
 	}
 	SDL_RenderPresent(renderer);
 }
