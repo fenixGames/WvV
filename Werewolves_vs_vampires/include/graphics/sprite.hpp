@@ -17,5 +17,9 @@ public:
 	~Sprite();
 
 	virtual SDL_Texture * getTexture();
+
+	void setColorMod(Color&);
+	void setAlpha(uint8_t);
+	void setBlendingMode(SDL_BlendMode);
 };
 #endif

@@ -42,3 +42,18 @@ SDL_Texture *
 Sprite::getTexture() {
 	return texture;
 }
+
+void
+Sprite::setAlpha(uint8_t alpha) {
+	SDL_SetTextureAlphaMod(this->texture, alpha);
+}
+
+void
+Sprite::setColorMod(Color& colorMod) {
+	SDL_SetTextureColorMod(this->texture, colorMod.red, colorMod.green, colorMod.blue);
+}
+
+void
+Sprite::setBlendingMode(SDL_BlendMode mode) {
+	SDL_SetTextureBlendMode(this->texture, mode);
+}
