@@ -5,24 +5,31 @@
 
 #ifndef GEOMETRY_HPP
 #define GEOMETRY_HPP
+#include <atomic>
 
 class Point {
 public:
-	float x;
-	float y;
+	std::atomic<float> x;
+	std::atomic<float> y;
 
 	Point();
 	Point(float, float);
+	Point(const Point&);
+
 	Point operator + (const Point&);
 	Point operator - (const Point&);
+	Point operator = (const Point&);
 };
 
 class Size {
 public:
-	int width;
-	int height;
+	std::atomic<int> width;
+	std::atomic<int> height;
 
 	Size();
 	Size(int, int);
+	Size(const Size&);
+
+	Size operator= (const Size&);
 };
 #endif
