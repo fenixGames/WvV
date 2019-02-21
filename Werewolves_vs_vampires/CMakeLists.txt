@@ -34,6 +34,11 @@ if (WIN32)
 
 else (WIN32)
 	set(DLL_INSTALLED_LIBS "")
+	include_directories("/usr/include" "/usr/local/include" "/usr/local/include/SDL2")
+	find_library(SDL2_LIBRARY SDL2 PATHS "/lib" "/usr/lib" "/usr/local/lib")
+	find_library(SDL2_MAIN_LIBRARY SDL2main PATHS "/lib" "/usr/lib" "/usr/local/lib")
+	find_library(SDL2_IMAGE_LIBRARY SDL2_image PATHS "/lib" "/usr/lib" "/usr/local/lib")
+
 endif (WIN32)
 
 add_executable(Werewolves_vs_Vampires ${SOURCES})
