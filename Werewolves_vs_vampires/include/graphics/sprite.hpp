@@ -13,12 +13,12 @@ protected:
 	SDL_Texture * texture;
 
 public:
-	Sprite(const char * path_to_sprite, Color&, SDL_Renderer *);
+	Sprite(const char * path_to_sprite, const Color&, SDL_Renderer *);
 	~Sprite();
 
 	virtual SDL_Texture * getTexture();
 
-	void setColorMod(Color&);
+	void setColorMod(const Color&);
 	void setAlpha(uint8_t);
 	void setBlendingMode(SDL_BlendMode);
 };

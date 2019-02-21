@@ -5,7 +5,7 @@
 #include <graphics/sprite.hpp>
 #include <exceptions.hpp>
 
-Sprite::Sprite(const char * path_to_file, Color& alpha, SDL_Renderer * renderer) {
+Sprite::Sprite(const char * path_to_file, const Color& alpha, SDL_Renderer * renderer) {
 	std::ifstream file(path_to_file);
 	SDL_Surface * image;
 
@@ -49,7 +49,7 @@ Sprite::setAlpha(uint8_t alpha) {
 }
 
 void
-Sprite::setColorMod(Color& colorMod) {
+Sprite::setColorMod(const Color& colorMod) {
 	SDL_SetTextureColorMod(this->texture, colorMod.red, colorMod.green, colorMod.blue);
 }
 
