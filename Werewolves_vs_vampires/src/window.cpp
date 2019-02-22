@@ -56,7 +56,7 @@ Window::start() {
 Scene *
 Window::getCurrentScene()
 {
-	while ((*itScenes)->is_finished() && itScenes != sceneList.end())
+	while ((*itScenes)->isFinished() && itScenes != sceneList.end())
 		itScenes++;
 	if (itScenes != sceneList.end())
 		return *itScenes;

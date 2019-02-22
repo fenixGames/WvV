@@ -52,8 +52,8 @@ Viewport::renderNodes(std::list<Node *> *listNodes) {
 	std::list<Node *>::iterator itNodes;
 	SDL_Rect stretchRect;
 
-	SDL_RenderClear(renderer);
 	SDL_RenderSetViewport(this->renderer, &this->viewport);
+	
 	for (itNodes = listNodes->begin(); itNodes != listNodes->end(); itNodes++) {
 		(*itNodes)->fillDimentions(&stretchRect);
 
@@ -63,7 +63,7 @@ Viewport::renderNodes(std::list<Node *> *listNodes) {
 				SDL_RenderCopy(renderer, texture, NULL, &stretchRect);
 		}
 	}
-	SDL_RenderPresent(renderer);
+	
 }
 
 bool

@@ -18,15 +18,17 @@ protected:
 	bool finished;
 
 	std::list<Viewport *> viewports;
+	SDL_Renderer * renderer;
 public:
 	EventController * evController;
 	std::list<Node *> nodes;
 
 	Scene();
-	bool is_finished(void);
+	bool isFinished(void);
 	void draw();
 
 	void addViewport(Viewport *);
+	void setRenderer(SDL_Renderer*);
 };
 
 #endif
