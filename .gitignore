@@ -263,3 +263,4 @@ __pycache__/
 *.lib
 /Werewolves_vs_vampires/CMakeSettings.json
 /Werewolves_vs_vampires/yaml-cpp-yaml-cpp-0.6.2
+/build
