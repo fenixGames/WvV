@@ -4,6 +4,8 @@
 
 #ifndef SPRITE_HPP
 #define SPRITE_HPP
+#include <string>
+
 #include <SDL.h>
 
 #include <graphics/graphic.hpp>
@@ -14,6 +16,7 @@ protected:
 
 public:
 	Sprite(const char * path_to_sprite, const Color&, SDL_Renderer *);
+	Sprite(std::string path_to_sprite, const Color&, SDL_Renderer *);
 	~Sprite();
 
 	virtual SDL_Texture * getTexture();

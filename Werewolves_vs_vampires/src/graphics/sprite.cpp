@@ -5,6 +5,10 @@
 #include <graphics/sprite.hpp>
 #include <exceptions.hpp>
 
+Sprite::Sprite(std::string path_to_file, const Color& alpha, SDL_Renderer * renderer) :
+	Sprite(path_to_file.c_str(), alpha, renderer) {
+}
+
 Sprite::Sprite(const char * path_to_file, const Color& alpha, SDL_Renderer * renderer) {
 	std::ifstream file(path_to_file);
 	SDL_Surface * image;
