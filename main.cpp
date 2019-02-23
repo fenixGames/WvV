@@ -7,13 +7,13 @@
 #include <window.hpp>
 
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGTH = 480;
+const int SCREEN_WIDTH = 700;
+const int SCREEN_HEIGTH = 1000;
 
 
 int main(int argc, char * argv[])
 {
-	Window win(SCREEN_WIDTH, SCREEN_HEIGTH, "SDL Tutorial");
+	Window win(SCREEN_WIDTH, SCREEN_HEIGTH, "Werewoves vs. Vampires");
 	Scene first;
 	Viewport vp1(Point(), Point(), Size(SCREEN_WIDTH, SCREEN_HEIGTH / 2), win.getRenderer());
 	Viewport vp2(Point(), Point(0.0, SCREEN_HEIGTH / 2), Size(SCREEN_WIDTH, SCREEN_HEIGTH / 2), win.getRenderer());
