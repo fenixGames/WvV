@@ -7,6 +7,10 @@
 #include <window.hpp>
 
 
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGTH = 480;
+
+
 int main(int argc, char * argv[])
 {
 	Window win(SCREEN_WIDTH, SCREEN_HEIGTH, "SDL Tutorial");
