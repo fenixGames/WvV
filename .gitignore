@@ -266,3 +266,5 @@ __pycache__/
 /build
 /.codelite
 /cmake-build-Debug/Werewolves_vs_Vampires
+
+include/cmake_params.hpp
