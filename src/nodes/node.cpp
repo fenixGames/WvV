@@ -18,18 +18,14 @@ Node::getTexture()
 {
 	SDL_Texture * texture = NULL;
 
-	this->mutex.lock();
 	if (graphicResource != NULL)
 		texture = graphicResource->getTexture();
-	this->mutex.unlock();
 	return texture;
 }
 
 void
 Node::setGraphicResource(Graphic * resource) {
-	this->mutex.lock();
 	graphicResource = resource;
-	this->mutex.unlock();
 }
 
 void 
