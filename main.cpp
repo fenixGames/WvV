@@ -5,6 +5,7 @@
 #include <nodes/node.hpp>
 #include <scene.hpp>
 #include <window.hpp>
+#include <cmake_params.hpp>
 
 
 const int SCREEN_WIDTH = 700;
@@ -19,7 +20,7 @@ int main(int argc, char * argv[])
 	Viewport vp2(Point(0.0, SCREEN_HEIGTH / 2), Size(SCREEN_WIDTH, SCREEN_HEIGTH / 2), win.getRenderer());
 	Node label1(Point(), Size(SCREEN_WIDTH, SCREEN_HEIGTH / 2));
 	Node label2(Point(0.0, SCREEN_HEIGTH /2), Size(SCREEN_WIDTH, SCREEN_HEIGTH / 2));
-	Sprite * sprite1 = new Sprite("resources/hello_world.png", Color(0xFFFFFF), win.getRenderer());
+	Sprite * sprite1 = new Sprite(RESOURCES_FOLDER "/hello_world.png", Color(0xFFFFFF), win.getRenderer());
 	EventController * evController = new EventController();
 
 	evController->addEventHandler(new QuitHandler());
