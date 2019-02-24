@@ -7,13 +7,13 @@ set (CMAKE_CXX_STANDARD 11)
 SET(
 	SOURCES 
 		main.cpp
-		src/nodes/node.cpp
 		src/window.cpp
 		src/exceptions.cpp
 		src/scene.cpp
 		src/viewport.cpp
-		src/event_handler.cpp
-		src/piece.cpp
+		src/events/event_handler.cpp
+		src/nodes/node.cpp
+		src/nodes/piece.cpp
 		src/physics/geometry.cpp
 		src/graphics/sprite.cpp
 		src/graphics/graphic.cpp

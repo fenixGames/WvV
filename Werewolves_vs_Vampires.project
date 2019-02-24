@@ -6,6 +6,16 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="include">
+    <File Name="include/cmake_params.hpp"/>
+    <VirtualDirectory Name="nodes">
+      <File Name="include/nodes/piece.hpp"/>
+      <File Name="include/nodes/node.hpp"/>
+      <File Name="include/nodes/draggable_node.hpp"/>
+      <File Name="include/nodes/board.hpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="events">
+      <File Name="include/events/event_handler.hpp"/>
+    </VirtualDirectory>
     <File Name="include/cmake_params.hpp.in"/>
     <File Name="include/window.hpp"/>
     <File Name="include/viewport.hpp"/>
@@ -13,11 +23,11 @@
     <File Name="include/piece.hpp"/>
     <File Name="include/node.hpp"/>
     <File Name="include/exceptions.hpp"/>
-    <File Name="include/event_handler.hpp"/>
     <VirtualDirectory Name="physics">
       <File Name="include/physics/geometry.hpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="graphics">
+      <File Name="include/graphics/text.hpp"/>
       <File Name="include/graphics/sprite.hpp"/>
       <File Name="include/graphics/graphic.hpp"/>
     </VirtualDirectory>
@@ -26,6 +36,16 @@
     <File Name="main.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="nodes">
+      <File Name="src/nodes/piece.cpp"/>
+      <File Name="src/nodes/node.cpp"/>
+      <File Name="src/nodes/draggable_node.cpp"/>
+      <File Name="src/nodes/board.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="events">
+      <File Name="src/events/mouse_handler.cpp"/>
+      <File Name="src/events/event_handler.cpp"/>
+    </VirtualDirectory>
     <File Name="src/window.cpp"/>
     <File Name="src/viewport.cpp"/>
     <File Name="src/scene.cpp"/>
@@ -37,6 +57,7 @@
       <File Name="src/physics/geometry.cpp"/>
     </VirtualDirectory>
     <VirtualDirectory Name="graphics">
+      <File Name="src/graphics/text.cpp"/>
       <File Name="src/graphics/sprite.cpp"/>
       <File Name="src/graphics/graphic.cpp"/>
     </VirtualDirectory>

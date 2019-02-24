@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-#include <piece.hpp>
+#include <nodes/piece.hpp>
 #include <graphics/sprite.hpp>
 
 static std::vector<PieceTexture *> pieceTextures;
