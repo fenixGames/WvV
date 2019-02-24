@@ -5,6 +5,7 @@
 #define EXCEPTIONS_HPP
 
 #include <exception>
+#include <stdexcept>
 #include <string>
 
 class SDLException : public std::exception {
