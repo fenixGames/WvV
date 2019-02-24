@@ -73,7 +73,7 @@
       <PostBuild/>
       <CustomBuild Enabled="yes">
         <RebuildCommand/>
-        <CleanCommand>make clean</CleanCommand>
+        <CleanCommand>mingw32-make.exe clean</CleanCommand>
         <BuildCommand>mingw32-make.exe</BuildCommand>
         <PreprocessFileCommand/>
         <SingleFileCommand/>
