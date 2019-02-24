@@ -2,11 +2,10 @@
 #include <string.h>
 
 Viewport::Viewport(const Viewport& viewPort) :
-	Viewport(viewPort.viewport, viewPort.position, viewPort.renderer) {
+	Viewport(viewPort.viewport, viewPort.renderer) {
 }
 
 Viewport::Viewport(
-	const Point& position,
 	const Point& viewportPosition,
 	const Size& viewportSize,
 	SDL_Renderer * renderer) {
@@ -18,17 +17,14 @@ Viewport::Viewport(
 	viewport.h = viewportSize.height;
 
 	this->setViewport(viewport);
-	this->setPosition(position);
 	this->setRenderer(renderer);
 }
 
 Viewport::Viewport(
 	const SDL_Rect viewport,
-	const Point& position,
 	SDL_Renderer * renderer) {
 	
 	this->setViewport(viewport);
-	this->setPosition(position);
 	this->setRenderer(renderer);
 }
 
@@ -43,11 +39,6 @@ Viewport::setRenderer(SDL_Renderer * renderer) {
 }
 
 void
-Viewport::setPosition(const Point& position) {
-	this->position = position;
-}
-
-void
 Viewport::renderNodes(std::list<Node *> *listNodes) {
 	std::list<Node *>::iterator itNodes;
 	SDL_Rect stretchRect;
@@ -57,10 +48,16 @@ Viewport::renderNodes(std::list<Node *> *listNodes) {
 	for (itNodes = listNodes->begin(); itNodes != listNodes->end(); itNodes++) {
 		(*itNodes)->fillDimentions(&stretchRect);
 
+		stretchRect.x -= this->viewport.x;
+		stretchRect.y -= this->viewport.y;
+
 		if (this->isNodePrintable(*itNodes)) {
 			SDL_Texture * texture = (*itNodes)->getTexture();
+			
 			if (texture != NULL)
 				SDL_RenderCopy(renderer, texture, NULL, &stretchRect);
+			this->renderNodes((*itNodes)->getChildren());
+			(*itNodes)->act();
 		}
 	}
 	
@@ -76,8 +73,8 @@ Viewport::isNodePrintable(Node * node) {
 	nodePosition.y = rect.y;
 
 	memcpy(&rect, &this->viewport, sizeof(SDL_Rect));
-	rect.x = (int)this->position.x;
-	rect.y = (int)this->position.y;
+	rect.x = (int)this->viewport.x;
+	rect.y = (int)this->viewport.y;
 
 	return SDL_PointInRect(&nodePosition, &rect);
 }

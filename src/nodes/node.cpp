@@ -1,4 +1,4 @@
-#include <node.hpp>
+#include <nodes/node.hpp>
 
 Node::Node() : Node(Point(0, 0), Size(0, 0))
 {
@@ -16,7 +16,7 @@ Node::Node(const Point& startPoint, const Size& startSize)
 SDL_Texture *
 Node::getTexture()
 {
-	SDL_Texture * texture;
+	SDL_Texture * texture = NULL;
 
 	this->mutex.lock();
 	if (graphicResource != NULL)
@@ -55,4 +55,22 @@ Node::setPosition(const Point& point) {
 void
 Node::setSize(const Size& size) {
 	this->size = size;
+}
+
+void
+Node::addChild(Node * child) {
+	if (child != NULL)
+		child->parent = this;
+		this->children.push_back(child);
+}
+
+std::list<Node*>* 
+Node::getChildren()
+{
+	return &this->children;
+}
+
+void 
+Node::act()
+{
 }
