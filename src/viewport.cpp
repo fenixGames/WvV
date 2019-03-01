@@ -39,8 +39,8 @@ Viewport::setRenderer(SDL_Renderer * renderer) {
 }
 
 void
-Viewport::renderNodes(std::list<Node *> *listNodes) {
-	std::list<Node *>::iterator itNodes;
+Viewport::renderNodes(std::list<BasicNode *> *listNodes) {
+	std::list<BasicNode *>::iterator itNodes;
 	SDL_Rect stretchRect;
 
 	SDL_RenderSetViewport(this->renderer, &this->viewport);
@@ -64,7 +64,7 @@ Viewport::renderNodes(std::list<Node *> *listNodes) {
 }
 
 bool
-Viewport::isNodePrintable(Node * node) {
+Viewport::isNodePrintable(BasicNode * node) {
 	SDL_Rect rect;
 	SDL_Point nodePosition;
 

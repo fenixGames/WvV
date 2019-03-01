@@ -8,14 +8,14 @@
 
 #include <mutex>
 #include <list>
-#include <SDL.h>
 
 #include <physics/geometry.hpp>
 #include <graphics/graphic.hpp>
+#include <os.hpp>
 
 /** Representation of a game object.
  */
-class Node {
+class BasicNode {
 protected:
 	Graphic * graphicResource; // <* The graphical resource associated.
 	Point position; // <* Position of the object on the world.
@@ -25,19 +25,19 @@ protected:
 	   so we need to keep track of the ancestory to
 	   calculate the absolute coordinates.
 	 */
-	Node * parent; // <* Parent node.
-	std::list<Node *> children; // <* List of depending nodes.
+	BasicNode * parent; // <* Parent node.
+	std::list<BasicNode *> children; // <* List of depending nodes.
 public:
 
 	/** Creates an object of size 0 x 0 in the position (0, 0)
 	 */
-	Node();
+	BasicNode();
 
 	/**Creates an object of the size `size` in the position `position`.
 	 * \param position The position of the new object.
 	 * \param size The size of the object to create.
 	 */
-	Node(const Point&, const Size&);
+	BasicNode(const Point& position, const Size& size);
 
 	/** Sets the position of the object to a new place.
 	 * \param position The new position of the node.
@@ -67,15 +67,23 @@ public:
 	/** Appends a child to the node.
 	 * \param child The child to append to the node.
 	 */
-	void addChild(Node * node);
+	void addChild(BasicNode * node);
 
 	/** Retrieves the list of children of the node.
 	 * \return The list of children of the node.
 	 */
-	std::list<Node *> * getChildren();
+	std::list<BasicNode *> * getChildren();
 
 	/** A virtual function to allow the node to perform actions on itself after printing.
 	 */
+	virtual void act() = 0;
+};
+
+class Node: public BasicNode {
+public:
+	Node();
+	Node(const Point& position, const Size& size);
 	virtual void act();
 };
+
 #endif

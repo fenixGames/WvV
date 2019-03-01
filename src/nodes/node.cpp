@@ -1,10 +1,10 @@
 #include <nodes/node.hpp>
 
-Node::Node() : Node(Point(0, 0), Size(0, 0))
+BasicNode::BasicNode() : BasicNode(Point(0, 0), Size(0, 0))
 {
 }
 
-Node::Node(const Point& startPoint, const Size& startSize)
+BasicNode::BasicNode(const Point& startPoint, const Size& startSize)
 {
 	this->setPosition(startPoint);
 	this->setSize(startSize);
@@ -14,7 +14,7 @@ Node::Node(const Point& startPoint, const Size& startSize)
 
 
 SDL_Texture *
-Node::getTexture()
+BasicNode::getTexture()
 {
 	SDL_Texture * texture = NULL;
 
@@ -24,13 +24,13 @@ Node::getTexture()
 }
 
 void
-Node::setGraphicResource(Graphic * resource) {
+BasicNode::setGraphicResource(Graphic * resource) {
 	graphicResource = resource;
 }
 
 void 
-Node::fillDimentions(SDL_Rect *rect) {
-	Node * root = this;
+BasicNode::fillDimentions(SDL_Rect *rect) {
+	BasicNode * root = this;
 
 	rect->w = (int)this->size.width;
 	rect->h = (int)this->size.height;
@@ -44,29 +44,37 @@ Node::fillDimentions(SDL_Rect *rect) {
 }
 
 void
-Node::setPosition(const Point& point) {
+BasicNode::setPosition(const Point& point) {
 	this->position = point;
 }
 
 void
-Node::setSize(const Size& size) {
+BasicNode::setSize(const Size& size) {
 	this->size = size;
 }
 
 void
-Node::addChild(Node * child) {
+BasicNode::addChild(BasicNode * child) {
 	if (child != NULL)
 		child->parent = this;
 		this->children.push_back(child);
 }
 
-std::list<Node*>* 
-Node::getChildren()
+std::list<BasicNode*>* 
+BasicNode::getChildren()
 {
 	return &this->children;
 }
 
-void 
+Node::Node(): BasicNode()
+{
+}
+
+Node::Node(const Point& position, const Size& size) : BasicNode(position, size)
+{
+}
+
+void
 Node::act()
 {
 }
