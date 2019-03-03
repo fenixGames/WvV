@@ -1,6 +1,6 @@
 #include <iostream>
-#include <SDL.h>
 
+#include <os.hpp>
 #include <graphics/sprite.hpp>
 #include <nodes/node.hpp>
 #include <scene.hpp>

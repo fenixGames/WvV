@@ -8,8 +8,9 @@
 #ifndef EVENT_HANDLER_HPP
 #define EVENT_HANDLER_HPP
 
-#include <SDL.h>
 #include <list>
+
+#include <os.hpp>
 
 /** API for SDL event handling.
  */

@@ -4,10 +4,10 @@
 
 #ifndef PIECE_HPP
 #define PIECE_HPP
-#include <SDL.h>
 
 #include <graphics/graphic.hpp>
 #include <nodes/node.hpp>
+#include <os.hpp>
 
 #define PIECE_SIZE	Size(100, 100)
 

@@ -1,10 +1,7 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
 #include <stdexcept>
 
 #include <exceptions.hpp>
-
+#include <os.hpp>
 
 SDLException::SDLException(const char * msg) {
 	message = msg;

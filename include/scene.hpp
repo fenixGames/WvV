@@ -7,11 +7,10 @@
 
 #include <list>
 
-#include <SDL.h>
-
 #include <nodes/node.hpp>
 #include <events/event_handler.hpp>
 #include <viewport.hpp>
+#include <os.hpp>
 
 class Scene {
 protected:
@@ -21,7 +20,7 @@ protected:
 	SDL_Renderer * renderer;
 public:
 	EventController * evController;
-	std::list<Node *> nodes;
+	std::list<BasicNode *> nodes;
 
 	Scene();
 	bool isFinished(void);

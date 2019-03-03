@@ -2,8 +2,7 @@
 #define TEXT_HPP
 #include <string>
 
-#include <SDL.h>
-#include <SDL_ttf.h>
+#include <os.hpp>
 #include <graphics/graphic.hpp>
 
 class Text : public Graphic {

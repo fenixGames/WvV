@@ -1,0 +1,2 @@
+[*]
+c_include_path = /usr/include:/usr/local/include:/usr/include/SDL2:/usr/local/include/SDL2:include

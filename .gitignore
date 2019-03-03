@@ -89,6 +89,9 @@ ipch/
 *.vsp
 *.vspx
 *.sap
+*.vcxproj
+*.vcxproj.filters
+
 
 # TFS 2012 Local Workspace
 $tf/
@@ -268,3 +271,9 @@ __pycache__/
 /cmake-build-Debug/Werewolves_vs_Vampires
 
 /include/cmake_params.hpp
+/CMakeCache.txt
+/CMakeFiles/
+/Makefile
+/cmake_install.cmake
+
+

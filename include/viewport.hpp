@@ -6,10 +6,10 @@
 #define VIEWPORT_HPP
 #include <mutex>
 #include <list>
-#include <SDL.h>
 
 #include <physics/geometry.hpp>
 #include <nodes/node.hpp>
+#include <os.hpp>
 
 /**
  * The viewport class is a representation of a "camera", it can be moved as
@@ -20,7 +20,7 @@
  */
 class Viewport {
 private:
-	bool isNodePrintable(Node *);
+	bool isNodePrintable(BasicNode *);
 	void setViewport(const SDL_Rect);
 	void setRenderer(SDL_Renderer *);
 protected:
@@ -33,6 +33,6 @@ public:
 	Viewport(const Point&, const Size&, SDL_Renderer *);
 	Viewport(const Viewport&);
 
-	void renderNodes(std::list<Node *> *);
+	void renderNodes(std::list<BasicNode *> *);
 };
 #endif
