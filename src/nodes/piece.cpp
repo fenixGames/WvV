@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 
+#include <FenixEngine/FenixEngine.h>
 #include <nodes/piece.hpp>
-#include <graphics/sprite.hpp>
 
 static std::vector<PieceTexture *> pieceTextures;
 

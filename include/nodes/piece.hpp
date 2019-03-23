@@ -5,9 +5,7 @@
 #ifndef PIECE_HPP
 #define PIECE_HPP
 
-#include <graphics/graphic.hpp>
-#include <nodes/node.hpp>
-#include <os.hpp>
+#include <FenixEngine/FenixEngine.h>
 
 #define PIECE_SIZE	Size(100, 100)
 

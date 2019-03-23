@@ -5,8 +5,8 @@
 #define BOARD_HPP
 #include <list>
 
-#include <node.hpp>
-#include <piece.hpp>
+#include <FenixEngine/FenixEngine.h>
+#include <nodes/piece.hpp>
 
 class Board : public Node {
 private:

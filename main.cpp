@@ -1,10 +1,6 @@
 #include <iostream>
 
-#include <os.hpp>
-#include <graphics/sprite.hpp>
-#include <nodes/node.hpp>
-#include <scene.hpp>
-#include <window.hpp>
+#include <FenixEngine/FenixEngine.h>
 #include <cmake_params.hpp>
 
 

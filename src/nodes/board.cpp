@@ -1,4 +1,4 @@
-#include "..\include\board.hpp"
+#include <nodes/board.hpp>
 
 std::list<Piece*> Board::create_row(int ncols)
 {
